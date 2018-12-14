@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>tornado WebSocket example</title>
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>A multi-currency bank account</h1>
+    <hr>
+      WebSocket status : <span id="message"></span>
+    <hr>
+     
+    <hr>
+    <h3>REST API examples - adding Users</h3>
+    <ol>
+      
+        <ul><li>curl "http://localhost:8880/api?name=foo&amp;ccy=EUR"</li></ul>
+      </li>  
+    </ol>
+    
+  </div>
+  <script>
+    var host = window.location.host;
+    var ws = new WebSocket('ws://'+host+'/ws');
+    var $message = $('#message');
+
+    ws.onopen = function(){
+      $message.attr("class", 'label label-success');
+      $message.text('open');
+    };
+    ws.onmessage = function(ev){
+      $message.attr("class", 'label label-info');
+      $message.hide();
+      $message.fadeIn("slow");
+      $message.text('recieved message');
+
+      var json = JSON.parse(ev.data);
+      $('#' + json.id).hide();
+      $('#' + json.id).fadeIn("slow");
+      $('#' + json.id).text(json.value);
+
+      var $rowid = $('#row' + json.id);
+      if(json.value > 500){
+        $rowid.attr("class", "error");
+      }
+      else if(json.value > 200){
+        $rowid.attr("class", "warning");
+      }
+      else{
+        $rowid.attr("class", "");
+      }
+    };
+    ws.onclose = function(ev){
+      $message.attr("class", 'label label-important');
+      $message.text('closed');
+    };
+    ws.onerror = function(ev){
+      $message.attr("class", 'label label-warning');
+      $message.text('error occurred');
+    };
+
+  </script>
+</body>
+</html>

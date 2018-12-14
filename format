@@ -1,0 +1,22 @@
+`{'method': 'deposit',
+'date': '2018-10-09',
+'account': 'bob',
+'amt' : 10,
+'ccy': 'EUR'}
+
+{'method': 'withdrawal,
+'date': '2018-10-09'
+'account': 'alice',
+'amt' : 10,
+'ccy': 'EUR'}
+
+{'method': 'transfer',
+'date': '2018-10-09'
+'to_account': 'bob',
+'from_account': 'alice',
+'amt': 100,
+'ccy': 'GBP' }
+
+{'method': 'get_balances',
+'date': '2018-10-09',
+'account': 'bob'}```
