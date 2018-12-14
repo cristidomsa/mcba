@@ -16,8 +16,8 @@ Run client:
 python3 client.py
 
 KNOWN TODOs:
-- add comments
-- add docstrings
+- add docstrings (some comments)
+- add tests
 - clean code
 - add paralel execution where possible
 
