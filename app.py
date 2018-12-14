@@ -32,8 +32,6 @@ VALID_OPS = {'deposit': Operations.deposit,
 
 class BankingSocketHandler(tornado.websocket.WebSocketHandler):
 
-    
-
     def check_origin(self, origin):
         return True
 

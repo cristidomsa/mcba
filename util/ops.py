@@ -99,11 +99,11 @@ class Operations():
         try:
             acc_from = Operations().get_user(from_account)
             
-            if acc is None: return (0, CODES[700].format(from_account))
+            if acc_from is None: return (0, CODES[700].format(from_account))
 
             acc_to = Operations().get_user(to_account)
             
-            if acc is None: return (0, CODES[700].format(to_account))
+            if acc_from is None: return (0, CODES[700].format(to_account))
 
             sum_from = convert(amt, ccy, acc_from.ccy)
             sum_to = convert(amt, ccy, acc_to.ccy)
