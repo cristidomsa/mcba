@@ -20,6 +20,7 @@ KNOWN TODOs:
 - add tests
 - clean code
 - add paralel execution where possible
+- enhance security a lot (secret key, UUID, login)
 
 
 Summary: 
